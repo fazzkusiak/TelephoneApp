@@ -42,13 +42,13 @@ namespace Telephone
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,14 +94,15 @@ namespace Telephone
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(373, 175);
+            this.textBox1.Location = new System.Drawing.Point(372, 170);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 23);
+            this.textBox1.Size = new System.Drawing.Size(206, 23);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(373, 208);
+            this.textBox2.Location = new System.Drawing.Point(373, 203);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(205, 23);
             this.textBox2.TabIndex = 1;
@@ -175,30 +176,6 @@ namespace Telephone
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "home",
-            "office",
-            "friends"});
-            this.comboBox1.Location = new System.Drawing.Point(373, 273);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(205, 23);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Phone";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "Name";
@@ -219,6 +196,30 @@ namespace Telephone
             this.Column3.HeaderText = "Category";
             this.Column3.Name = "Column3";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "home",
+            "office",
+            "friends"});
+            this.comboBox1.Location = new System.Drawing.Point(373, 274);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(205, 23);
+            this.comboBox1.TabIndex = 3;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Phone";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
             // Phone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -238,7 +239,7 @@ namespace Telephone
             this.Controls.Add(this.insertButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.newButton);
-            this.Name = "Phone";
+           // this.Name = "Phone";
             this.Text = "Phone";
             this.Load += new System.EventHandler(this.Phone_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
