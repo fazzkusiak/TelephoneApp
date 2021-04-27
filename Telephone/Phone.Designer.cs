@@ -163,18 +163,21 @@ namespace Telephone
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 357);
+            this.dataGridView1.Location = new System.Drawing.Point(-12, 358);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1181, 260);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1143, 258);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -239,7 +242,7 @@ namespace Telephone
             this.Controls.Add(this.insertButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.newButton);
-           // this.Name = "Phone";
+            //this.Name = "Phone";
             this.Text = "Phone";
             this.Load += new System.EventHandler(this.Phone_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

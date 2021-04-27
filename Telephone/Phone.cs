@@ -19,6 +19,7 @@ namespace Telephone
         public Phone()
         {
             InitializeComponent();
+            Display();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -52,16 +53,42 @@ namespace Telephone
 
         private void removeButton_Click(object sender, EventArgs e)
         {
+            conn.Open();
+            SqlCommand sqlc = new SqlCommand("DELETE FROM Mobiles WHERE (Phone = '" + textBox2.Text + "')", conn);
 
+            sqlc.ExecuteNonQuery();
+            Display();
+            conn.Close();
         }
 
         private void insertButton_Click(object sender, EventArgs e)
         {
-            SqlCommand  ->  remove, insert, delete
-                SqlDataAdapter -> Select
-                SqlDataReader
+            conn.Open();
+            SqlCommand sqlc = new SqlCommand("INSERT INTO Mobiles(Name, Phone, Email, Category) " +
+                "VALUES('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + comboBox1.Text + "')", conn);
+
+            sqlc.ExecuteNonQuery();
+            Display();
+            conn.Close();
+          
         }
 
+        void Display()
+        {
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Mobiles", conn);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dataGridView1.Rows.Clear();
+            foreach (DataRow item in dt.Rows)
+            {
+                var n = dataGridView1.Rows.Add();
+                dataGridView1.Rows[n].Cells[0].Value = item[0].ToString();
+                dataGridView1.Rows[n].Cells[1].Value = item[1].ToString();
+                dataGridView1.Rows[n].Cells[2].Value = item[2].ToString();
+                dataGridView1.Rows[n].Cells[3].Value = item[3].ToString();
+
+            }
+        }
         private void readButton_Click(object sender, EventArgs e)
         {
 
@@ -86,6 +113,14 @@ namespace Telephone
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox1.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            textBox2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            textBox3.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            comboBox1.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
         }
     }
 }
