@@ -89,9 +89,13 @@ namespace Telephone
 
             }
         }
-        private void readButton_Click(object sender, EventArgs e)
+        private void updateButton_Click(object sender, EventArgs e)
         {
-
+            conn.Open();
+            SqlCommand sqlc = new SqlCommand(@"UPDATE Mobiles SET Name = '" + textBox1.Text + "' , Phone = '" + textBox2.Text + "', Email = '" + textBox3.Text + "', Category = '" + comboBox1.Text + "'WHERE (Phone = '" + textBox2.Text + "')", conn);
+            sqlc.ExecuteNonQuery();
+            conn.Close();
+            Display();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -121,6 +125,25 @@ namespace Telephone
             textBox2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             textBox3.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             comboBox1.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+        }
+
+      
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Mobiles WHERE Phone LIKE ('" + textBox4.Text + "%') or (Name LIKE '%" + textBox4.Text + "%')", conn);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dataGridView1.Rows.Clear();
+            foreach (DataRow item in dt.Rows)
+            {
+                var n = dataGridView1.Rows.Add();
+                dataGridView1.Rows[n].Cells[0].Value = item[0].ToString();
+                dataGridView1.Rows[n].Cells[1].Value = item[1].ToString();
+                dataGridView1.Rows[n].Cells[2].Value = item[2].ToString();
+                dataGridView1.Rows[n].Cells[3].Value = item[3].ToString();
+
+            }
+           
         }
     }
 }

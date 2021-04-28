@@ -32,7 +32,7 @@ namespace Telephone
             this.newButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.insertButton = new System.Windows.Forms.Button();
-            this.readButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -49,6 +49,7 @@ namespace Telephone
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,15 +83,15 @@ namespace Telephone
             this.insertButton.UseVisualStyleBackColor = true;
             this.insertButton.Click += new System.EventHandler(this.insertButton_Click);
             // 
-            // readButton
+            // updateButton
             // 
-            this.readButton.Location = new System.Drawing.Point(644, 274);
-            this.readButton.Name = "readButton";
-            this.readButton.Size = new System.Drawing.Size(75, 23);
-            this.readButton.TabIndex = 7;
-            this.readButton.Text = "Read";
-            this.readButton.UseVisualStyleBackColor = true;
-            this.readButton.Click += new System.EventHandler(this.readButton_Click);
+            this.updateButton.Location = new System.Drawing.Point(644, 274);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(75, 23);
+            this.updateButton.TabIndex = 7;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // textBox1
             // 
@@ -223,11 +224,20 @@ namespace Telephone
             this.dataGridViewTextBoxColumn1.HeaderText = "Phone";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(780, 329);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(335, 23);
+            this.textBox4.TabIndex = 15;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
             // Phone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 742);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label5);
@@ -238,11 +248,11 @@ namespace Telephone
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.readButton);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.insertButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.newButton);
-            //this.Name = "Phone";
+           // this.Name = "Phone";
             this.Text = "Phone";
             this.Load += new System.EventHandler(this.Phone_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -256,7 +266,7 @@ namespace Telephone
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button insertButton;
-        private System.Windows.Forms.Button readButton;
+        private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
@@ -273,5 +283,6 @@ namespace Telephone
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
